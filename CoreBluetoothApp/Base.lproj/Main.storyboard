@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CoreBluetoothApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="135" minValue="90" maxValue="180" translatesAutoresizingMaskIntoConstraints="NO" id="AIC-GS-C5b">
+                                <rect key="frame" x="34" y="318" width="307" height="31"/>
+                                <connections>
+                                    <action selector="servoSpeedSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="TSR-jh-9GE"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="90" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3X-5V-rBf">
+                                <rect key="frame" x="170.5" y="176.5" width="34" height="33.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="AIC-GS-C5b" firstAttribute="top" secondItem="h3X-5V-rBf" secondAttribute="bottom" constant="108" id="4b0-86-J1k"/>
+                            <constraint firstItem="h3X-5V-rBf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FkJ-I4-V2V"/>
+                            <constraint firstItem="AIC-GS-C5b" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="Xd4-rP-bey"/>
+                            <constraint firstItem="AIC-GS-C5b" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="jsX-4Y-Hpu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="AIC-GS-C5b" secondAttribute="trailing" constant="20" id="pXh-P8-rRs"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="servoSpeedLabel" destination="h3X-5V-rBf" id="s3p-le-dSo"/>
+                        <outlet property="servoSpeedSlider" destination="AIC-GS-C5b" id="Jsp-aD-8ym"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="215" y="130"/>
+        </scene>
+    </scenes>
+</document>
