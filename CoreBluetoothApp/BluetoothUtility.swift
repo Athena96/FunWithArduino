@@ -102,25 +102,28 @@ class BluetoothUtility: NSObject, CBCentralManagerDelegate, CBPeripheralDelegate
     /// #8
     // When the specified services are discovered, the peripheral (the CBPeripheral object you’re connected to) calls the peripheral:didDiscoverServices: method of its delegate object
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
-  
-        guard let motorControlService = peripheral.services?.first, error == nil else {
-            print("didDiscoverServices")
+       
+        guard let services = peripheral.services, error == nil else {
             print(error)
             resetClass()
             scanForDevices()
             return
         }
         
-        print("#8 : found the desired service on the peripheral, now we are requesting the peripherals characteristics")
-        peripheral.discoverCharacteristics([CharacteristicUUID], for: motorControlService)
-        
+        for service in services {
+            
+            if service.uuid == ServiceUUID {
+                print("#8 : found the desired service on the peripheral, now we are requesting the peripherals characteristics")
+                peripheral.discoverCharacteristics([CharacteristicUUID], for: service)
+            }
+        }
+
     }
     
     /// #9
     // called after peripheral.discoverCharacteristics
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         guard let characteristics = service.characteristics, error == nil else {
-            print("didDiscoverCharacteristicsFor")
             print(error)
             resetClass()
             scanForDevices()
